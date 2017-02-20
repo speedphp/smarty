@@ -1,0 +1,18 @@
+{
+  "name": "smarty",
+  "dependencies": {},
+  "description": "Support php syntax node of smarty template engine.",
+  "license": "ISC",
+  "main": "index.js",
+  "author": {
+    "name": "zhenzhong"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://zhenzhong@bitbucket.org/zhenzhong/smarty.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.4"
+}
