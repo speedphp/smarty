@@ -3,16 +3,16 @@
   "dependencies": {},
   "description": "Support php syntax node of smarty template engine.",
   "license": "ISC",
-  "main": "index.js",
+  "main": "smarty.js",
   "author": {
     "name": "zhenzhong"
   },
   "repository": {
     "type": "git",
-    "url": "https://zhenzhong@bitbucket.org/zhenzhong/smarty.git"
+    "url": "https://bitbucket.org/zhenzhong/smarty.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.1.4"
+  "version": "0.1.5"
 }
