@@ -25,14 +25,13 @@ break
 continue
 include
 
-markdown .md支持，<{markdown}><{/markdown}>
+markdown .md支持
 
 
 配置：（tpl_xxx的参数）
 
 路径
 
-增加自定义过滤器：名称：函数表达式变量
 增加自定义函数：名称：函数表达式变量
 
 是否自动HTML转码：默认否
@@ -41,3 +40,5 @@ markdown .md支持，<{markdown}><{/markdown}>
  - [auto]检查文件修改时间如有修改则重新编译，但执行输出
  - [compile]读取并编译后内存缓存，但执行输出
  - [freeze]记录输入参数，没有修改就直接返回缓存html
+
+TODO：考虑watchfile的方式是auto还是独立另一个模式

@@ -19,7 +19,8 @@
 
 variable modifier example of <{ldelim}>$Name|upper<{rdelim}>
 
-<b><{$Name|upper}></b>
+<b><{
+$Name|upper}></b>
 
 
 An example of a section loop:
@@ -54,9 +55,9 @@ An example of a section loop:
 <table border=0>
     <tr>
         <td>
-            <A HREF="<{$SCRIPT_NAME}>">
+
                 <font color="red">This is a test </font>
-            </A>
+
         </td>
     </tr>
 </table>
