@@ -7,8 +7,15 @@
 <body><{if 1==100}>
 10000
 <{else}>
-
+<{foreach $abc as $v}>
+<{$v}><{var $aa = $v}>
+<{if $v=="jake"}>helloworld<{/if}>
+<{/foreach}>
 #message#
+<{for key in $abc}>
+<{include c="aa" a=$abc[key] aaaa = "19999"}>
+<{$abc[key]}>
+<{/for}>
 <{/if}>
-</body><{abc}>
+</body><{$aa}>
 </html>
