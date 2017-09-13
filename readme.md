@@ -38,7 +38,11 @@ markdown .md支持
 
 缓存模式：
  - [auto]检查文件修改时间如有修改则重新编译，但执行输出
+ - [watch]自动监控文件修改并重新编译，但执行输出
  - [compile]读取并编译后内存缓存，但执行输出
  - [freeze]记录输入参数，没有修改就直接返回缓存html
 
-TODO：考虑watchfile的方式是auto还是独立另一个模式
+
+单元测试：render，complie，四种缓存模式，HTTP显示模式，模拟express模式
+
+readme

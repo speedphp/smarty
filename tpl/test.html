@@ -10,12 +10,12 @@
 <{foreach $abc as $v}>
 <{$v}><{var $aa = $v}>
 <{if $v=="jake"}>helloworld<{/if}>
-<{/foreach}>
+<{/foreach}><{include file="demo.tpl"}>
 #message#
 <{for key in $abc}>
-<{include c="aa" a=$abc[key] aaaa = "19999"}>
+eee
 <{$abc[key]}>
 <{/for}>
-<{/if}>
+<{/if}>bbbbbbb
 </body><{$aa}>
 </html>

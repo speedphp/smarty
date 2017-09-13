@@ -1,8 +1,9 @@
 const path = require("path")
 
 var compile = require("../smarty")({
-    "caching" : "helo"
-}).compile(path.resolve(__dirname + "/../tpl/test.html"));
+    "caching" : "helo",
+    "template_dir" : path.resolve(__dirname + "/../tpl")
+}).compile("test.html");
 
 var options = {
     "abc" : {
@@ -13,3 +14,8 @@ var options = {
 }
 
 console.log(compile(options))
+
+setTimeout(function () {
+    console.log(compile(options))
+    console.log("2")
+}, 2000)

@@ -1,5 +1,6 @@
 const config = require("./lib/config")
 const path = require("path")
+const cache = require("./lib/cache.js")
 
 function Smarty(_config) {
     var Smarty = new Object();
@@ -13,9 +14,9 @@ function Smarty(_config) {
      */
     Smarty.compile = function (file) {
         if (!path.isAbsolute(file)) {
-            file = Smarty.config.template_dir + file;
+            file = Smarty.config.template_dir + path.sep + file;
         }
-        var html = require("./lib/readFile")(file, this.config);
+        var html = require("./lib/readFile")(file, Smarty.config);
         var runable = require("./lib/compile")(html, require("./lib/syntax")).join("");
         runable = 'var $SMARTY_STR="";' + runable + ';return $SMARTY_STR;';
         return function (options, callback) {
@@ -23,16 +24,13 @@ function Smarty(_config) {
                 var addoptions = "";
                 for (var key in options) {
                     addoptions += "var ";
-                    if (typeof options[key] !== "function") {
-                        addoptions += "$";
-                    }
+                    if (typeof options[key] !== "function") addoptions += "$";
                     addoptions += key + "= options." + key + ";";
                 }
+                runable = addoptions + runable;
             }
-
-            // TODO: try catch出错界面
-
-            var result = new Function("options", "include", addoptions + runable)(options, include);
+            runable = "try{" + runable + '}catch(error){throw new Error(error.message + \" in \" + tplpath + \" on line \" + linenum);}';
+            var result = new Function("Smarty", "options", "tplpath", runable)(Smarty, options, file);
             if (typeof callback === "function") {
                 callback(null, result);
             } else {
@@ -49,8 +47,27 @@ function Smarty(_config) {
      * @returns 渲染执行结果
      */
     Smarty.render = function (file, options, callback) {
-        var compile = Smarty.compile(file);
-        var result = compile(options);
+        var result = undefined;
+        if (Smarty.config.caching === "freeze") {
+            var options_plat = JSON.stringify(options);
+            result = cache.get(file + options_plat);
+            if (result === undefined) {
+                result = Smarty.compile(file)(options);
+                cache.set(file + options_plat, result);
+            }
+        } else {
+            var compile = undefined;
+            if (Smarty.config.caching === "compile") {
+                compile = cache.get(file);
+                if (compile === undefined) {
+                    compile = Smarty.compile(file);
+                    cache.set(file, compile);
+                }
+            } else {
+                compile = Smarty.compile(file);
+            }
+            result = compile(options);
+        }
         if (typeof callback === "function") {
             callback(null, result);
         } else {
@@ -60,7 +77,5 @@ function Smarty(_config) {
     return Smarty;
 }
 
-var include = function (param) {
-    return "";
-}
+
 exports = module.exports = Smarty
