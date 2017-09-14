@@ -1,48 +1,41 @@
-# Smarty for node
+# Smarty lite for node
 
-Support php syntax node of smarty template engine.
+the light weight Smarty engine for node.
+Node版的，简约的Smarty语法。
 
 ## Usage
 
 > npm install smarty
 
-## TODO
+## Feature
 
+Grammar of Lite & Common & Widely used: comment, var assign, if-else, foreach, for, include.
+支持语法：注释，var赋值，if-else，foreach，for，include
 
-$smarty.request
-$smarty.response
+Support Input Parameter, Parameter could be a Function.
+支持参数，参数可以是函数表达式。
 
-注释  忽略
-$变量  过滤输出
-. 和方框 默认支持
-$变量（函数表达式支持函数） nofilter
-var xx = xx
-if else else if 
-foreach
-foreach@变量
-for-in
-break
-continue
-include
+Support Customize the template path and cache mode.
+支持自定义路径，缓存模式等。
 
-markdown .md支持
+Could come to a compile Function expression, Could use in express js.
+支持compile编译表达式，支持express。
 
+## Cache Mode
 
-配置：（tpl_xxx的参数）
+Cache Mode
+ - [auto]Cache template file until file modified.
+ - [watch]Watch template file change, then refresh the cache.
+ - [compile]Cache the compile function, ignore the file stat.
+ - [freeze]Cache output by input parameter.
 
-路径
+缓存模式
 
-增加自定义函数：名称：函数表达式变量
+ - [auto]根据文件修改时间对模板进行缓存。
+ - [watch]监控文件修改并刷新缓存。
+ - [compile]编译缓存，不管文件修改情况。
+ - [freeze]根据输入参数进行缓存，在输入参数没有修改之前，缓存不会过期。
 
-是否自动HTML转码：默认否
+## License
 
-缓存模式：
- - [auto]检查文件修改时间如有修改则重新编译，但执行输出
- - [watch]自动监控文件修改并重新编译，但执行输出
- - [compile]读取并编译后内存缓存，但执行输出
- - [freeze]记录输入参数，没有修改就直接返回缓存html
-
-
-单元测试：render，complie，四种缓存模式，HTTP显示模式，模拟express模式
-
-readme
+ISC
