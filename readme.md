@@ -1,6 +1,7 @@
 # Smarty lite for node
 
 the light weight Smarty engine for node.
+
 Node版的，简约的Smarty语法。
 
 ## Usage
@@ -10,20 +11,25 @@ Node版的，简约的Smarty语法。
 ## Feature
 
 Grammar of Lite & Common & Widely used: comment, var assign, if-else, foreach, for, include.
+
 支持语法：注释，var赋值，if-else，foreach，for，include
 
 Support Input Parameter, Parameter could be a Function.
+
 支持参数，参数可以是函数表达式。
 
 Support Customize the template path and cache mode.
+
 支持自定义路径，缓存模式等。
 
 Could come to a compile Function expression, Could use in express js.
+
 支持compile编译表达式，支持express。
 
 ## Cache Mode
 
 Cache Mode
+
  - [auto]Cache template file until file modified.
  - [watch]Watch template file change, then refresh the cache.
  - [compile]Cache the compile function, ignore the file stat.
