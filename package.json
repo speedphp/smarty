@@ -11,5 +11,6 @@
     "type": "git",
     "url": "https://github.com/zhenzhong/smarty.git"
   },
-  "version": "1.0.3"
+  "keywords": ["smarty", "template", "template engine", "smarty template"],
+  "version": "1.0.4"
 }
