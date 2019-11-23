@@ -5,12 +5,12 @@
   "license": "ISC",
   "main": "smarty.js",
   "author": {
-    "name": "zhenzhong"
+    "name": "speedphp"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhenzhong/smarty.git"
+    "url": "https://github.com/speedphp/smarty.git"
   },
   "keywords": ["smarty", "template", "template engine", "smarty template"],
-  "version": "1.0.4"
+  "version": "1.0.5"
 }
